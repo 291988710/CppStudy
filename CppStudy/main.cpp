@@ -8,6 +8,7 @@
 /************************************************************************/
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -21,6 +22,19 @@ int main()
 		++iLen;
 	}
 	cout<<iLen<<"; "<<st<<endl;
-	
+	int a[3] = {1,2,3};
+	vector<int> vec1(a,a+3);
+	vector<int> vec2;
+	vector<int>::iterator iter1;
+	vector<int>::iterator iter2;
+	iter2 = vec2.begin();
+	iter1 = iter2;
+	if (iter1 == iter2)
+	{
+	}
+	//iter1 = vec1.begin();
+	*iter1;
+	iter1++;
+
 	return 0;
 }

@@ -83,3 +83,11 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+CppStudy.sdf
+CppStudy.suo
+*.tlog
+*.log
+CppStudy/Debug/vc100.idb
+*.pdb
+*.ilk
+Debug/CppStudy.pdb

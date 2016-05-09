@@ -11,7 +11,12 @@
 using namespace std;
 
 /************************************************************************
- * namespace decleration
+ * global variable declaration
+************************************************************************/
+int a;
+
+/************************************************************************
+ * namespace declaration
 ************************************************************************/
 namespace npA
 {
@@ -23,6 +28,11 @@ namespace npB
 	void print(double d) { cout<<"npB\t"<<d<<endl; }
 }
 
+namespace npC
+{
+	void print(char *c) { cout<<"npC\t"<<c<<endl; }
+}
+
 void print(string s)
 {
 	cout<<"global\t"<<s<<endl;
@@ -30,6 +40,32 @@ void print(string s)
 
 using namespace npA;
 using namespace npB;
+
+/************************************************************************
+* Title: Test1
+* Description: 测试函数
+* Param: void
+* Return: void
+************************************************************************/
+void Test1()
+{
+	using npC::print;	//在块中使用using声明，则会隐藏掉上面的三个重载函数
+	print("Test1");
+	//print(4);	//这时就会出错，因为全局的print三个重载函数已被隐藏	
+}
+
+/************************************************************************
+* Title: Test2
+* Description: 测试函数
+* Param: void
+* Return: void
+************************************************************************/
+void Test2()
+{
+	using namespace npC;	//在块中使用using指示符，使名字空间成员可见就好像它们是在名字空间之外 在定义名字空间的位置上被声明的一样
+	print("Test2");
+	print(4);	//这时就是正常的
+}
 
 /************************************************************************
 * Title: main
@@ -41,7 +77,9 @@ int main()
 {
 	print(1);
 	print(2.2);
-	print("this");
+	print("main");
+	Test1();
+	Test2();
 
 	return 0;
 }

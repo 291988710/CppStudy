@@ -68,6 +68,27 @@ void Test2()
 }
 
 /************************************************************************
+* Title: TemplateTest
+* Description: 模板测试函数
+* Param: void
+* Return: void
+************************************************************************/
+template<typename Type, int nSize>
+Type TemplateTest(Type (&array)[nSize])
+{
+	Type minVal = array[0];
+	for (int i = 0; i < nSize; i++)
+	{
+		if (array[i] < minVal)
+		{
+			minVal = array[i];
+		}
+	}
+
+	return minVal;
+}
+
+/************************************************************************
 * Title: main
 * Description: 函数入口
 * Param: void
@@ -80,6 +101,15 @@ int main()
 	print("main");
 	Test1();
 	Test2();
+
+	//TemplateTest
+	int arrayA[] = { 2, 3, 4, 123, 5, 1, 6};
+	double arrayB[] = {1.2, 2.3, 3.4, 4.5, 5.6, 6.7, 0.2};
+
+	int nMinA = TemplateTest(arrayA);
+	cout<<"nMinA: "<<nMinA<<endl;
+	double dMinB = TemplateTest(arrayB);
+	cout<<"dMinB: "<<dMinB<<endl;
 
 	return 0;
 }

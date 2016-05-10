@@ -92,3 +92,8 @@ CppStudy/Debug/vc100.idb
 *.ilk
 Debug/CppStudy.pdb
 *.sdf
+*.log
+CppStudy/Debug/vc100.idb
+*.pdb
+*.log
+*.pdb

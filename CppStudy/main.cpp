@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <string>
+#include <typeinfo>
 using namespace std;
 
 /************************************************************************
@@ -105,11 +106,18 @@ int main()
 	//TemplateTest
 	int arrayA[] = { 2, 3, 4, 123, 5, 1, 6};
 	double arrayB[] = {1.2, 2.3, 3.4, 4.5, 5.6, 6.7, 0.2};
+	struct stA
+	{
+		int nA;
+		double dB;
+	};
+	stA stA1;
 
 	int nMinA = TemplateTest(arrayA);
 	cout<<"nMinA: "<<nMinA<<endl;
 	double dMinB = TemplateTest(arrayB);
 	cout<<"dMinB: "<<dMinB<<endl;
+	cout<<typeid(dMinB).name()<<"\t"<<typeid(stA1).name()<<endl;
 
 	return 0;
 }

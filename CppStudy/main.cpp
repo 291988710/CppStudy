@@ -86,11 +86,11 @@ void Test2()
 class GreaterThan
 {
 public:
-	GreaterThan(int sz = 6) : _size(sz) {};
-	int size() {return _size;}
+	GreaterThan(unsigned int sz = 6) : _size(sz) {};
+	unsigned int size() {return _size;}
 	bool operator() (const string &s1) {return s1.size() > _size;}
 private:
-	int _size;
+	unsigned int _size;
 };
 
 class PrintElem
@@ -207,6 +207,21 @@ Type TemplateTest(Type (&array)[nSize])
 }
 
 /************************************************************************
+* Title: DivideNum
+* Description: 将输入参数除以2
+* Param: int
+* Return: void
+************************************************************************/
+void DivideNum(int nNum)
+{
+	while (nNum) 
+	{
+		cout<<"DivideNum\t"<<nNum<<endl;
+		nNum = nNum>>1;
+	}
+}
+
+/************************************************************************
 * Title: main
 * Description: 函数入口
 * Param: void
@@ -223,18 +238,14 @@ int main()
 	//TemplateTest
 	int arrayA[] = { 2, 3, 4, 123, 5, 1, 6};
 	double arrayB[] = {1.2, 2.3, 3.4, 4.5, 5.6, 6.7, 0.2};
-	struct stA
-	{
-		int nA;
-		double dB;
-	};
-	stA stA1;
 
 	int nMinA = TemplateTest(arrayA);
 	cout<<"nMinA: "<<nMinA<<endl;
 	double dMinB = TemplateTest(arrayB);
 	cout<<"dMinB: "<<dMinB<<endl;
-	cout<<typeid(dMinB).name()<<"\t"<<typeid(stA1).name()<<endl;
+	cout<<typeid(dMinB).name()<<endl;
+
+	cout<<"\n\n";
 
 	vector<textWords> sample;
 	vector<string> t1, t2;
@@ -259,6 +270,11 @@ int main()
 	sample.push_back(t1);
 	sample.push_back(t2);
 	ProcessVocab(&sample);
+
+	cout<<endl;
+
+	int nNum = -10;
+	DivideNum(nNum);
 
 	return 0;
 }
